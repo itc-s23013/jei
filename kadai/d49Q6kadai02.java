@@ -1,4 +1,9 @@
-public class d49Q6kadai {
+// 学生番号: s23013
+// 課題概要: 問６のプログラムをアレンジして実行例のように追加で中央値を求めるようにしてください
+
+import java.util.Arrays;
+
+public class d49Q6kadai02 {
     public static void main(String[] arguments) {
         int[] nums = new int[arguments.length];
 
@@ -31,6 +36,9 @@ class Analyzer {
         int[] counts = getHighLowCounts(avg);
         sb.append("平均より大きい値の個数: " + counts[0] + "\n");
         sb.append("平均より小さい値の個数: " + counts[1] + "\n");
+
+        double median = getMedian();
+        sb.append("中央値: " + median + "\n");
 
         return sb.toString();
     }
@@ -67,6 +75,11 @@ class Analyzer {
             }
         }
         return new int[]{high, low};
+    }
+
+    double getMedian() {
+        Arrays.sort(nums);
+        return nums[nums.length / 2];
     }
 }
 
